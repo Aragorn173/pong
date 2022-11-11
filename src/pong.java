@@ -13,9 +13,18 @@ public class pong {
 
     void update() {
         ball.move();
+        checkcollision();
     }
 
     void checkcollision() {
-
+        if (ball.y == 0 || ball.y == height) {
+            ball.bounce();
+        }
+        if (ball.x == paddle.x && ball.y == paddle.y) {
+            ball.bounce(paddle);
+        }
+        if (ball.x == paddle2.x && ball.y == paddle2.y) {
+            ball.bounce(paddle2);
+        }
     }
 }
